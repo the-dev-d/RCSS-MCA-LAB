@@ -98,7 +98,7 @@ int main() {
     int choice;
     do {
         printf("\n\nMenu:\n");
-        printf("1. Insert \n2. Search by eno \n3. Sort by name \n4. Sort by salary\n5. Delete by eno\n 6.Display \n7.Delete \nEnter your choice: ");
+        printf("1. Insert \n2. Search by eno \n3. Sort by name \n4. Sort by salary\n5. Delete by eno\n 6.Display \n7.Exit \nEnter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
