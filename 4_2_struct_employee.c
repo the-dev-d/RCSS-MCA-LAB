@@ -65,7 +65,7 @@ int deleteEmployeeByNumber(struct Employee employees[], int n, int eno) {
 }
 
 void insertEmployee(struct Employee employees[], int i, int n) {
-    if(i+1 == n) {
+    if(i == n) {
         printf("Memory full");
         return;
     }
@@ -127,7 +127,7 @@ int main() {
             case 5:
                 printf("Enter the Employee Number to delete: ");
                 scanf("%d", &eno);
-                n = deleteEmployeeByNumber(employees, i, eno);
+                i = deleteEmployeeByNumber(employees, i, eno);
                 break;
 
             case 6:
