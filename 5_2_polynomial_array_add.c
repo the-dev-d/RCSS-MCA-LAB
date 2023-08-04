@@ -82,7 +82,7 @@ int main() {
     displayPolynomial(p1, n1);
 
     printf("polynomial 2 : ");
-    displayPolynomial(p1,n2);
+    displayPolynomial(p2,n2);
 
 
     nres = addPolynomial(p1, n1, p2, n2, res);

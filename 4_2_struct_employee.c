@@ -65,7 +65,7 @@ int deleteEmployeeByNumber(struct Employee employees[], int n, int eno) {
 }
 
 void insertEmployee(struct Employee employees[], int i, int n) {
-    if(i+1 == n) {
+    if(i == n) {
         printf("Memory full");
         return;
     }
@@ -98,7 +98,7 @@ int main() {
     int choice;
     do {
         printf("\n\nMenu:\n");
-        printf("1. Insert \n2. Search by eno \n3. Sort by name \n4. Sort by salary\n5. Delete by eno\n 6.Display \n7.Delete \nEnter your choice: ");
+        printf("1. Insert \n2. Search by eno \n3. Sort by name \n4. Sort by salary\n5. Delete by eno\n 6.Display \n7.Exit \nEnter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -127,7 +127,7 @@ int main() {
             case 5:
                 printf("Enter the Employee Number to delete: ");
                 scanf("%d", &eno);
-                n = deleteEmployeeByNumber(employees, i, eno);
+                i = deleteEmployeeByNumber(employees, i, eno);
                 break;
 
             case 6:
