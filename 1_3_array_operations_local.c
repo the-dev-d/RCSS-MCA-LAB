@@ -3,7 +3,7 @@
 int insert(int ar[], int index, int size) {
     if (index == size) {
         printf("Insufficient space ..");
-        return;
+        return index;
     }
 
     printf("Enter the element : ");
@@ -20,7 +20,7 @@ int removeFrom(int ar[], int index, int size) {
 
     if (pos >= index) {
         printf("Invalid position \n");
-        return;
+        return index;
     }
 
     for (i = pos - 1; i < index; i++) {
