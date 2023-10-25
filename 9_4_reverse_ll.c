@@ -36,18 +36,13 @@ void insert_last(int data) {
 	return;
 }
 
-void display_reverse() {
+void display_reverse(struct node *n) {
 	
-	struct node *end = NULL;
-	do {
-		struct node *temp;
-		for(temp = head; temp->next != end; temp = temp->next) {
-			
-		}
-		printf("%d --> ", temp->data);
-		end = temp;
-		
-	}while(end != head);
+	if(n==NULL)
+	    return;
+	    
+	display_reverse(n->next);
+	printf("%d, ", n->data);
 }
 
 void display() {
@@ -82,7 +77,7 @@ int main() {
 				break;
 				
 			case 3:
-				display_reverse();
+				display_reverse(head);
 				break;
 		}
 	}while(opt!=4);
