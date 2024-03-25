@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Leap Year</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Poppins, sans-serif;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(190, 247, 216);
+            }
+            div {
+                display: grid;
+                gap: 1rem;
+                width: 50%;
+                text-align: center;
+                background: white;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+            button {
+                padding: 0.5rem;
+                font-size: 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: rgb(70, 245, 149);
+            }
+            p {
+                color: rgb(53, 53, 53);
+            }
+            input {
+                padding: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Leap Year</h1>
+            <p>Enter a year to check if it is a leap year.</p>
+            <input type="number" name="year" id="year" />
+            <button onclick="checkLeapYear()">Check</button>
+            <p id="output"></p>
+        </div>
+        <script>
+            class Year {
+                constructor(year) {
+                    this.year = year;
+                }
+                isLeapYear() {
+                    return (
+                        (this.year % 4 === 0 && this.year % 100 !== 0) ||
+                        this.year % 400 === 0
+                    );
+                }
+            }
+            function checkLeapYear() {
+                const year = document.getElementById("year").value;
+                if (year.trim() === "") return;
+                const yearObj = new Year(parseInt(year));
+                const output = document.getElementById("output");
+                if (yearObj.isLeapYear()) {
+                    output.textContent = `${year} is a leap year.`;
+                } else {
+                    output.textContent = `${year} is not a leap year.`;
+                }
+            }
+        </script>
+    </body>
+</html>
