@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Toggle</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            .container {
+                display: grid;
+                width: 50%;
+            }
+            label {
+                font-size: large;
+                font-weight: bold;
+            }
+            input {
+                padding: 1rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+            .container div {
+                display: grid;
+                gap: 0.5rem;
+                grid-template-columns: 1fr min-content;
+            }
+            button {
+                height: 100%;
+                aspect-ratio: 1/1;
+            }
+        </style>
+        <script>
+            function toggleView() {
+                const password = document.getElementById("password");
+                if (password.type === "password") {
+                    password.type = "text";
+                } else {
+                    password.type = "password";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <label for="password">Password</label>
+            <div>
+                <input type="password" name="password" id="password" />
+                <button onclick="toggleView()">👁️</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vowels</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            div {
+                display: grid;
+                place-items: center;
+                gap: 1rem;
+                width: 50%;
+            }
+            div * {
+                width: 100%;
+            }
+            p {
+                padding: 0.5rem;
+                border: 1px solid rgb(36, 202, 138);
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+            #output {
+                font-size: 1rem;
+            }
+            button {
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            input {
+                padding: 1rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+        </style>
+        <script>
+            function countVowels() {
+                const input = document.getElementById("input").value;
+                const vowels = input.match(/[aeiou]/gi);
+                document.getElementById("output").innerHTML = `<p>Vowels: ${
+                    vowels ? vowels.length : 0
+                }</p>`;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="text" name="input" id="input" />
+            <button onclick="countVowels()">Count Vowels</button>
+            <div id="output">
+                <p>Vowels: 0</p>
+            </div>
+        </div>
+    </body>
+</html>
