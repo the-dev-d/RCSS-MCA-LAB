@@ -5,8 +5,7 @@
     $server = 'localhost';
     $db = 'TODO';
     $con = new mysqli($server, $username, $password, $db);
-    // $query = "CREATE TABLE `TODO`.`todo` (`id` INT NOT NULL AUTO_INCREMENT , `task` VARCHAR(100) NOT NULL , `data` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `status` BIT(1) NOT NULL DEFAULT b'' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
-    // $con->query($query);
+    // CREATE TABLE `TODO`.`todo` (`id` INT NOT NULL AUTO_INCREMENT , `task` VARCHAR(100) NOT NULL , `data` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `status` BIT(1) NOT NULL DEFAULT b'' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
   
     if($_GET['action'] == 'add') {
         $task = $_POST['task'];
