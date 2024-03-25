@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Comment</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: rgb(190, 247, 216);
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                font-family: Poppins, sans-serif;
+            }
+            textarea {
+                width: 100%;
+                padding: 1rem;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+            textarea:focus {
+                outline: none;
+                border-color: rgb(70, 245, 149);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <textarea
+                placeholder="You can give your comment here..."
+                name="comment"
+                id="comment"
+                cols="30"
+                rows="10"
+            ></textarea>
+        </div>
+    </body>
+</html>
