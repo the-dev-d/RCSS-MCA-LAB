@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculator</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Poppins, sans-serif;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(190, 247, 216);
+            }
+            main {
+                display: grid;
+                grid-template-rows: min-content min-content 1fr;
+                background-color: rgb(53, 53, 53);
+                padding: 0.5rem;
+                border-radius: 1rem;
+                width: 25%;
+                aspect-ratio: 1/1;
+                gap: 0.5rem;
+            }
+            main input {
+                width: 100%;
+                padding: 0.5rem;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 0.5rem;
+            }
+            .buttons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+            .buttons button {
+                padding: 0.5rem;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: rgb(70, 245, 149);
+            }
+            main h4 {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h4>Simple Calculator</h4>
+            <input id="box" type="text" />
+            <div class="buttons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>+</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>-</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>*</button>
+                <button>C</button>
+                <button>0</button>
+                <button>=</button>
+                <button>/</button>
+            </div>
+        </main>
+        <script>
+            const box = document.getElementById("box");
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    if (button.textContent === "C") {
+                        box.value = "";
+                    } else if (button.textContent === "=") {
+                        box.value = eval(box.value);
+                    } else {
+                        box.value += button.textContent;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

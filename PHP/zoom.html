@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Zoom</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(190, 247, 216);
+            }
+            img {
+                width: 20%;
+                aspect-ratio: 1/1;
+                border-radius: 2rem;
+                transition: scale 0.5s ease-in-out;
+            }
+            img:hover {
+                scale: 1.3;
+            }
+        </style>
+    </head>
+    <body oncontextmenu="return false">
+        <img src="assets/rcss.jpg" alt="" />
+    </body>
+</html>

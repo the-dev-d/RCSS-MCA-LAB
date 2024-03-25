@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Loader</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(190, 247, 216);
+                font-family: Poppins, sans-serif;
+            }
+            .container {
+                width: 33%;
+                background: white;
+                padding: 1rem;
+                border-radius: 1rem;
+            }
+            .loader_frame {
+                border-radius: 1rem;
+                overflow: hidden;
+                margin-top: 1rem;
+                width: 100%;
+                height: 1rem;
+                display: grid;
+                border: 1px solid lightgray;
+            }
+            #load {
+                width: 0%;
+                height: 100%;
+                transition: width 0.5s;
+                animation: color_change 1s infinite;
+            }
+            @keyframes color_change {
+                0%,
+                100% {
+                    background-color: aquamarine;
+                }
+                50% {
+                    background-color: springgreen;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Loading...</h2>
+            <div class="loader_frame">
+                <div id="load"></div>
+            </div>
+        </div>
+        <script>
+            const load = document.getElementById("load");
+            let width = 0;
+            const timer = setInterval(() => {
+                width += 10;
+                if (width > 100) {
+                    clearInterval(timer);
+                }
+                load.style.width = `${width}%`;
+            }, 1000);
+        </script>
+    </body>
+</html>

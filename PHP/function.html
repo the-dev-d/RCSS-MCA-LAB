@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Function</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            button {
+                width: 30%;
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 0.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-size: large;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            function clickTriggered() {
+                console.log("Button click triggered Me 😃");
+                callableFunction();
+            }
+            function callableFunction() {
+                console.log("I was called by the function 😃");
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="clickTriggered()">Click Me</button>
+    </body>
+</html>

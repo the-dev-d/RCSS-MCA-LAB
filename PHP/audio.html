@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Audio</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(160, 250, 200);
+            }
+            div {
+                display: grid;
+                width: 20%;
+                background: white;
+                padding: 1rem;
+                border-radius: 2rem;
+                gap: 1rem;
+            }
+            div img {
+                width: 100%;
+                aspect-ratio: 1/1;
+                border-radius: 2rem;
+            }
+            div audio {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="assets/loki.jpg" alt="" />
+            <audio controls>
+                <source src="assets/loki_theme.mp3" type="audio/mpeg" />
+            </audio>
+        </div>
+    </body>
+</html>

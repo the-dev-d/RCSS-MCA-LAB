@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Email Validation</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+            }
+            div {
+                display: grid;
+                width: 20%;
+                background: white;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                gap: 1rem;
+            }
+            div input {
+                width: 100%;
+                padding: 0.5rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+            div button {
+                width: 100%;
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 0.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            #result {
+                color: rgb(36, 202, 138);
+                font-size: medium;
+                font-family: Poppins, sans-serif;
+            }
+        </style>
+        <script>
+            function validateEmail() {
+                const email = document.getElementById("email").value;
+                const result = document.getElementById("result");
+                const regex = /^[A-z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (regex.test(email)) {
+                    result.innerText = "Valid email";
+                } else {
+                    result.innerText = "Invalid email";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="email" id="email" placeholder="Enter email" />
+            <span type="text" id="result"></span>
+            <button onclick="validateEmail()">Validate</button>
+        </div>
+    </body>
+</html>

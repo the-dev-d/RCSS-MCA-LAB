@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redirect</title>
+        <style>
+            :root {
+                --primary-color: rgb(181, 247, 211);
+                --secondary-color: rgb(36, 202, 138);
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                font-family: Poppins, sans-serif;
+            }
+            h1 {
+                font-size: 2rem;
+                color: var(--secondary-color);
+            }
+            h2 {
+                font-size: 2rem;
+                color: white;
+            }
+            .container {
+                display: grid;
+                place-items: center;
+                gap: 2rem;
+                padding: 1rem;
+                height: 100vh;
+                width: 100%;
+            }
+            .bg-primary {
+                background-color: var(--primary-color);
+            }
+            .bg-secondary {
+                background-color: var(--secondary-color);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container bg-primary">
+            <h1>Go to main section by clicking <a href="#main">here</a></h1>
+        </div>
+        <div id="main" class="container bg-secondary">
+            <h2>Yay you clicked 😃</h2>
+        </div>
+    </body>
+</html>

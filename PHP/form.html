@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form</title>
+        <style>
+            :root {
+                --primary-color: rgb(70, 245, 149);
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Poppins, sans-serif;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                background-color: var(--primary-color);
+                height: 100vh;
+            }
+            form {
+                width: 33%;
+                display: grid;
+                gap: 2rem;
+                padding: 2rem;
+                background-color: white;
+                border-radius: 0.5rem;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            form input,
+            button {
+                width: 100%;
+                padding: 0.5rem;
+                border: 1px solid rgb(40, 40, 58);
+                border-radius: 0.25rem;
+            }
+            button {
+                background-color: var(--primary-color);
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="submit.php" method="post">
+            <h1>Hello,</h1>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" />
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <div>
+                <label for="confirm-password">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

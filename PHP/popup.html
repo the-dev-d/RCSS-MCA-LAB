@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Popup</title>
+        <style>
+            :root {
+                --secondary-color: rgb(181, 247, 211);
+                --primary-color: rgb(36, 202, 138);
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: var(--secondary-color);
+            }
+            button {
+                background-color: var(--primary-color);
+                color: white;
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                font-size: large;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            function callAlert() {
+                alert("This is an alert message");
+            }
+            function callConfirm() {
+                confirm("This is a confirm message");
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <button onclick="callAlert()">Alert</button>
+            <button onclick="callConfirm()">Confirm</button>
+        </div>
+    </body>
+</html>

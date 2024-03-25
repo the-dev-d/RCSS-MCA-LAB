@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Larger</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                font-family: Poppins, sans-serif;
+                background-color: rgb(190, 247, 216);
+            }
+            div {
+                display: grid;
+                padding: 0.5rem;
+                background: white;
+                border-radius: 0.5rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            input, button {
+                padding: 0.5rem;
+                font-size: 1rem;
+                border: 1px solid lightgray;
+                outline: none;
+            }
+            button {
+                background-color: rgb(70, 245, 149);
+                border: none;
+                cursor: pointer;
+            }
+            .span-2 {
+                grid-column: span 2;
+            }
+        </style>
+        <script>
+            function getLargest() {
+                const op1 = parseInt(document.getElementById("op1").value);
+                const op2 = parseInt(document.getElementById("op2").value);
+                const result = document.getElementById("result");
+                if (isNaN(op1) || isNaN(op2)) {
+                    result.value = "Invalid input";
+                    return;
+                }
+                if (op1 > op2) {
+                    result.value = op1;
+                } else {
+                    result.value = op2;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input placeholder="First Number" type="text" id="op1" />
+            <input placeholder="Second Number" type="text" id="op2" />
+            <button class="span-2" onclick="getLargest()">Largest</button>
+            <input placeholder="Largest number will appear" type="text" class="span-2" id="result"></input>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sort</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: rgb(181, 247, 211);
+        }
+        #container {
+            width: 50%;
+            display: grid;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+        }
+        input {
+            padding: 0.5rem;
+            border: 1px solid rgb(36, 202, 138);
+            border-radius: 0.5rem;
+        }
+        button {
+            background-color: rgb(36, 202, 138);
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <div id="container">
+            <input type="text" name="element" id="element" />
+            <button onclick="addToArray()">Add</button>
+            <div id="elements"></div>
+            <button onclick="sortArray()">Sort</button>
+        </div>
+        <script>
+            const elements = [];
+
+            function sortArray() {
+                elements.sort();
+                updateDisplay();
+            }
+            function addToArray() {
+                const element = document.getElementById("element");
+                elements.push(element.value.trim());
+                element.value = "";
+                updateDisplay();
+            }
+            function updateDisplay() {
+                document.getElementById("elements").innerHTML =
+                    JSON.stringify(elements);
+            }
+            updateDisplay();
+        </script>
+    </body>
+</html>
