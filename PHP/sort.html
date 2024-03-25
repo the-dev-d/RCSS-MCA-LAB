@@ -56,6 +56,7 @@
             }
             function addToArray() {
                 const element = document.getElementById("element");
+                if (element.value.trim() === "") return;
                 elements.push(element.value.trim());
                 element.value = "";
                 updateDisplay();

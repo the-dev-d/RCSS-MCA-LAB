@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fibonacci</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Poppins, sans-serif;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(190, 247, 216);
+            }
+            div {
+                display: grid;
+                gap: 1rem;
+                text-align: center;
+                background: white;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+            button {
+                padding: 0.5rem;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: rgb(70, 245, 149);
+            }
+            p {
+                color: rgb(53, 53, 53);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Fibonacci</h1>
+            <p>
+                Click the button to generate the next number in the Fibonacci
+                sequence.
+            </p>
+            <button onclick="generateNext()">Next</button>
+            <p id="output"></p>
+        </div>
+        <script>
+            const output = document.getElementById("output");
+
+            function generateNext() {
+                fibonacci.next();
+                output.textContent += " " + fibonacci.first;
+            }
+
+            const fibonacci = {
+                first: 0,
+                second: 1,
+                next: function () {
+                    const temp = this.first + this.second;
+                    this.first = this.second;
+                    this.second = temp;
+                }
+            };
+        </script>
+    </body>
+</html>
