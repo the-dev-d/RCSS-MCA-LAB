@@ -31,11 +31,13 @@ public class BitwiseShift {
         System.out.println("Number is " + number);
         System.out.println("Binary is " + getBinary(number));
 
+        System.out.println("==Left shift by 2 bits==");
         numberLeftShifted = number << 2;
 
         System.out.println("Number is " + numberLeftShifted);
         System.out.println("Binary is " + getBinary(numberLeftShifted));
 
+        System.out.println("==Right shift by 2 bits==");
         numberRightShifted = number >> 2;
 
         System.out.println("Number is " + numberRightShifted);

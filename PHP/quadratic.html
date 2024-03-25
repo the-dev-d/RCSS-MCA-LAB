@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quadratic</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            div {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            input {
+                padding: 1rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+            button {
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 1rem;
+                border: none;
+                font-size: large;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            span {
+                font-size: x-large;
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            function calculateQuadratic() {
+                const a = document.getElementById("a").value;
+                const b = document.getElementById("b").value;
+                const c = document.getElementById("c").value;
+                const result = document.getElementById("result");
+                const discriminant = b * b - 4 * a * c;
+                if (discriminant > 0) {
+                    const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                    const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                    result.value = `x1 = ${x1}, x2 = ${x2}`;
+                } else if (discriminant === 0) {
+                    const x = -b / (2 * a);
+                    result.value = `x = ${x}`;
+                } else {
+                    result.value = "No real roots";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="number" size="1" name="" id="a" />
+            <span>X <sup>2</sup> </span>
+            <span>+</span>
+            <input type="number" size="1" name="" id="b" />
+            <span>X </span>
+            <span>+</span>
+            <input type="number" size="1" name="" id="c" />
+            <button onclick="calculateQuadratic()">=</button>
+            <input type="text" size="10" name="" id="result" />
+        </div>
+    </body>
+</html>

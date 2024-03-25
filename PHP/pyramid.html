@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pyramid</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            div {
+                display: grid;
+                place-items: center;
+                gap: 1rem;
+            }
+            p {
+                padding: 0.5rem;
+                border: 1px solid rgb(36, 202, 138);
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+            #output {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            button {
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            input {
+                padding: 1rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Pyramid</h1>
+            <p>Enter the number of rows for the pyramid</p>
+            <input type="number" id="rows" />
+            <button onclick="drawPyramid()">Draw Pyramid</button>
+            <div id="output"></div>
+        </div>
+        <script>
+            function drawPyramid() {
+                const rows = document.getElementById("rows").value;
+                let output = "";
+                for (let i = 1; i <= rows; i++) {
+                    for (let j = 1; j <= rows - i; j++) {
+                        output += "&nbsp;&nbsp;";
+                    }
+                    for (let k = 1; k <= 2 * i - 1; k++) {
+                        output += "*";
+                    }
+                    output += "<br>";
+                }
+                document.getElementById("output").innerHTML = output;
+            }
+        </script>
+    </body>
+</html>

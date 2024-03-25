@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Background Random</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+
+                font-family: Poppins, sans-serif;
+                transition: background-color 1s;
+            }
+            div {
+                font-size: x-large;
+                font-weight: bold;
+                display: grid;
+                place-items: center;
+                gap: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Wait and background will change ⏲️</div>
+
+        <script>
+            setInterval(() => {
+                const randomColor = Math.floor(
+                    Math.random() * 16777215
+                ).toString(16);
+                document.body.style.backgroundColor = "#" + randomColor;
+            }, 1000);
+        </script>
+    </body>
+</html>
