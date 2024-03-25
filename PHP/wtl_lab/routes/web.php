@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,13 +11,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth');
+
 
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', function () {
+        return view('home');
+    })->middleware('auth');
+
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+    Route::get('/blogs/create', [BlogController::class, 'create'])->name('blogs.store.get');
+    Route::post('/blogs', [BlogController::class, 'save'])->name('blog.store.post');
+    Route::get('/blogs/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit.get');
+    Route::post('/blogs/update/{id}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('/blogs/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+});
 
 Route::post('/login', function (Request $request) {
 
