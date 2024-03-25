@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(181, 247, 211);
+        }
+        .container {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            width: 50%;
+            display: grid;
+            place-items: center;
+        }
+        div {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            width: 100%;
+            margin-top: 0.5rem;
+            background-color: rgb(181, 247, 211);
+            border: none;
+            border-radius: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="crud.php?action=add">
+            <div>
+                <label for="task">Task</label>
+                <input type="text" name="task" id="task">
+            </div>
+            <button type="submit">Add Task</button>
+        </form>
+        <div>
+                    </div>
+    </div>
+</body>
+</html>
