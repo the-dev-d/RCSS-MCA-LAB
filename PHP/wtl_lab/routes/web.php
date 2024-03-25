@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,10 +12,12 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('home');
-});
+})->middleware('auth');
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
 Route::post('/login', function (Request $request) {
 
     $validated = Validator::make($request->all(), [
@@ -22,11 +26,18 @@ Route::post('/login', function (Request $request) {
     ])->validate();
 
     if ($validated) {
-        return redirect('/home');
+        if(Auth::attempt($validated)){
+            return redirect('/home');
+        }
+        else {
+            return redirect('/login')->withErrors(['email' => 'Invalid email or password']);
+        }
     } else {
         return redirect('/login')->withErrors($validated);
     }
 });
+
+
 Route::get('/register', function () {
 
     return view('register');
@@ -39,6 +50,7 @@ Route::post('/register', function (Request $request) {
         'email' => 'required|email',
         'password' => 'required|min:6',
         'confirm' => 'required',
+        'name' => 'required',
     ])->validate();
 
     if ($validated['password'] != $validated['confirm']) {
@@ -46,6 +58,12 @@ Route::post('/register', function (Request $request) {
     }
 
     if ($validated) {
+
+        $user  = new User();
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = $validated['password'];
+        $user->save();
         return redirect('/home');
     } else {
         return redirect('/register')->withErrors($validated);

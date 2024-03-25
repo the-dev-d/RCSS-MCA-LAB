@@ -1,9 +1,9 @@
 <x-baseapp>
-    <div>
-        <label for="inputPassword5" class="form-label">Password</label>
-        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-        <div id="passwordHelpBlock" class="form-text">
-        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+    <div class="w-screen h-screen bg-gradient-to-tr from-emerald-200 to-blue-100 grid place-items-center">
+        <div class="p-6 bg-white rounded-md shadow-md">
+            @auth
+                <h1 class="text-xl font-semibold">Welcome, {{ auth()->user()->name }}</h1>
+            @endauth
         </div>
     </div>
 </x-baseapp>
