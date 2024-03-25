@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Date</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            div {
+                display: grid;
+                place-items: center;
+                gap: 1rem;
+            }
+            p {
+                padding: 0.5rem;
+                border: 1px solid rgb(36, 202, 138);
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+            #output {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Current Date and Time</h1>
+            <p id="output"></p>
+        </div>
+    </body>
+    <script>
+        function calculateDate() {
+            const date = new Date();
+            const dateString =
+                date.getDate() +
+                "/" +
+                (date.getMonth() + 1) +
+                "/" +
+                date.getFullYear();
+            const time =
+                date.getHours() +
+                ":" +
+                date.getMinutes() +
+                ":" +
+                date.getSeconds();
+
+            return dateString + " " + time;
+        }
+        setInterval(() => {
+            const result = calculateDate();
+            document.getElementById("output").innerText = result;
+        }, 1000);
+    </script>
+</html>

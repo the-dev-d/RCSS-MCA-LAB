@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Decimal to Binary</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                display: grid;
+                place-items: center;
+                align-content: center;
+                gap: 1rem;
+                height: 100vh;
+                background-color: rgb(181, 247, 211);
+                font-family: Poppins, sans-serif;
+            }
+            input {
+                width: 100%;
+                padding: 1rem;
+                border: 1px solid rgb(36, 202, 138);
+                border-radius: 0.5rem;
+            }
+            .container {
+                width: 100%;
+                display: grid;
+                gap: 1rem;
+            }
+            .wrapper {
+                display: grid;
+                place-items: center;
+                gap: 0.5rem;
+                grid-template-columns: min-content 1fr;
+            }
+            .wrapper label {
+                text-wrap: nowrap;
+                height: fit-content;
+            }
+            .main {
+                display: grid;
+                place-items: center;
+                gap: 1rem;
+                width: 33%;
+                background: white;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+            button {
+                background-color: rgb(36, 202, 138);
+                color: white;
+                padding: 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            p {
+                padding: 0.2rem 0.5rem;
+                border: 1px solid rgb(36, 202, 138);
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <h1>Decimal to Binary</h1>
+            <div class="container">
+                <div class="wrapper">
+                    <label for="decimal">Enter a decimal number:</label>
+                    <input type="number" id="decimal" />
+                </div>
+                <button onclick="convertToBinary()">Convert to Binary</button>
+                <p id="output"></p>
+            </div>
+        </div>
+        <script>
+            function convertToBinary() {
+                const decimal = document.getElementById("decimal").value;
+                const binary = (decimal >>> 0).toString(2);
+                document.getElementById("output").innerText = binary;
+            }
+        </script>
+    </body>
+</html>
