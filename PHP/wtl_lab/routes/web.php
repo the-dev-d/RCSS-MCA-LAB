@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Models\Student;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,73 +13,74 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
+Route::get('/register', function () {
+    return view('register');
+});
 Route::get('/login', function () {
     return view('login');
-})->name('login');
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', function () {
-        return view('home');
-    })->middleware('auth');
-
-    Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-    Route::get('/blogs/create', [BlogController::class, 'create'])->name('blogs.store.get');
-    Route::post('/blogs', [BlogController::class, 'save'])->name('blog.store.post');
-    Route::get('/blogs/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit.get');
-    Route::post('/blogs/update/{id}', [BlogController::class, 'update'])->name('blog.update');
-    Route::delete('/blogs/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
 });
-
-Route::post('/login', function (Request $request) {
-
-    $validated = Validator::make($request->all(), [
-        'email' => 'required|email',
-        'password' => 'required|min:6',
-    ])->validate();
-
-    if ($validated) {
-        if(Auth::attempt($validated)){
-            return redirect('/home');
-        }
-        else {
-            return redirect('/login')->withErrors(['email' => 'Invalid email or password']);
-        }
-    } else {
-        return redirect('/login')->withErrors($validated);
-    }
-});
-
-
-Route::get('/register', function () {
-
-    return view('register');
+Route::post('/register', function () {
     
-});
-
-Route::post('/register', function (Request $request) {
-
-    $validated = Validator::make($request->all(), [
+    $validator = Validator::make(request()->all(), [
+        'first_name' => 'required',
+        'last_name' => 'required',
         'email' => 'required|email',
-        'password' => 'required|min:6',
-        'confirm' => 'required',
-        'name' => 'required',
-    ])->validate();
-
-    if ($validated['password'] != $validated['confirm']) {
-        return redirect('/register')->withErrors(['confirm' => 'Password and Confirm Password must be same']);
+        'password' => 'required',
+        'confirm' => 'required|same:password',
+    ]);
+    
+    if ($validator->fails()) {
+        return redirect('/register')
+            ->withErrors($validator)
+            ->withInput();
     }
+    
+    $student = new Student();
+    $student->first_name = request('first_name');
+    $student->last_name = request('last_name');
+    $student->email = request('email');
+    $student->password = bcrypt(request('password'));
+    $student->roll_no = rand(1000, 9999);
+    $student->save();
+        
+    return redirect('/');
+})->name('register.post');
 
-    if ($validated) {
-
-        $user  = new User();
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->password = $validated['password'];
-        $user->save();
-        return redirect('/home');
-    } else {
-        return redirect('/register')->withErrors($validated);
+Route::post('/login', function () {
+    
+    $validator = Validator::make(request()->all(), [
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+    
+    if ($validator->fails()) {
+        return redirect('/login')
+            ->withErrors($validator)
+            ->withInput();
     }
-})->name('register');
+    
+    $credentials = request()->only('email', 'password');
+    
+    if (Auth::guard('student')->attempt($credentials)) {
+        return redirect('/');
+    }
+    else {
+        return redirect('/login')
+            ->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])
+            ->withInput();
+    }
+    
+    return redirect('/login');
+})->name('login.post');
+
+Route::group(['middleware' => 'auth:student'], function () {
+    Route::get('/profile', function () {
+        return view('profile');
+    });
+    Route::get('/subjects', function () {
+        $subjects = Subject::all();
+        return view('subjects', ['subjects' => $subjects]);
+    });
+});
