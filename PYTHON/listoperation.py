@@ -1,4 +1,5 @@
 names = ["Dhaivath", "Abhijith", "Devana", "Joyce", "Shelvin"];
+
 if "Devana" in  names: 
     print("😏")
 else:
@@ -11,5 +12,9 @@ for name in names:
 names.sort()
 
 print("\n\n==SORTED==\n")
-for name in names:
-    print(name)
+
+i = 0;
+l = len(names)
+while i < l:
+    print(names[i])
+    i=i+1
