@@ -8,61 +8,7 @@
 // print details of mobile using print details method.
 
 using System;
-
-class Mobile {
-
-    private string brand;
-
-    public Mobile() {
-        this.battery = 0;
-    }
-
-    public string Brand {
-        get { return brand; }
-        set { brand = value; }
-    }
-
-    private string model;
-    public string Model {
-        get { return model; }
-        set { model = value; }
-    }
-
-    private short battery;
-    public short Battery {
-        get { return battery; }
-    }
-
-    public void MakeCall(string phone) {
-        Console.WriteLine("Calling "+ phone + " ...");
-    }
-
-    public void ChargeBattery(short amount) {
-        if(this.battery + amount > 100) {
-            Console.WriteLine("Battery full");
-            this.battery = 100;
-            return;
-        }
-        battery+=amount;
-    }
-
-    public void useBattery(short amount) {
-        if(this.battery - amount < 0) {
-            Console.WriteLine("Battery down");
-            this.battery = 0;
-            return;
-        }
-        this.battery-=amount;
-    }
-
-    public void PrintDetails() {
-        Console.WriteLine("Brand: " + this.brand);
-        Console.WriteLine("Model: " + this.model);
-        Console.WriteLine("Battery at " + this.battery + "%");
-    }
-
-}
-
+using MobileClasses;
 public class MobileUses {
 
     public static void Main(string[] args) {
