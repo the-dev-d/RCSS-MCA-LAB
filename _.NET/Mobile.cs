@@ -10,8 +10,20 @@
 using System;
 
 namespace MobileClasses {
+
+    interface ICamera {
+        void TakePhoto();
+    }
+
+    interface IGps {
+        void GetLocation();
+    }
     class Mobile {
 
+        public Mobile(string brand, string model) {
+            this.brand = brand;
+            this.model = model;
+        }
         private string brand;
 
         public Mobile() {
